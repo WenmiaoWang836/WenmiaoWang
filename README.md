@@ -1,19 +1,19 @@
-VideoEmotion 多模态情感识别系统使用说明
-第一组组长王文淼
-2026 年 6 月 21 日
-1 概述
-本程序基于 EasyOCR、YuNet 人脸检测、文本情感模型 和 视觉情感模型，实时分析视频中的底部字幕、右侧弹幕及画面人脸表情。将文本三分类情感映射到七类，并与视觉表情结果加权融合，输出综合情感标签。项目新增 Gradio 网页可视化前端，无需本地弹窗，浏览器即可完成视频上传、实时推理查看，整套代码约 750 行（含注释，有效代码约 650 行）。
-2 文件结构
-项目主要包含以下文件：
-video_emotion_multimodal.py — 原始本地运行主程序
-app.py — Gradio 网页前端启动入口
-main.py — 视频流处理核心逻辑，对接前端输出画面
-fusion.py — 人脸检测、多模态情感融合核心类
-models.py — 文本 Bert 模型、ResNet18 视觉表情模型定义
-ocr.py — EasyOCR 字幕、弹幕区域文字识别工具
-tokenizer.py — 文本分词与词表构建工具
-utils.py — 中文绘图工具，解决 OpenCV 中文乱码
-config.py — 全局路径、识别区域、字体配置文件
+VideoEmotion 多模态情感识别系统使用说明     
+第一组组长王文淼     
+2026 年 6 月 21 日     
+1 概述      
+本程序基于 EasyOCR、YuNet 人脸检测、文本情感模型 和 视觉情感模型，实时分析视频中的底部字幕、右侧弹幕及画面人脸表情。将文本三分类情感映射到七类，并与视觉表情结果加权融合，输出综合情感标签。项目新增 Gradio 网页可视化前端，无需本地弹窗，浏览器即可完成视频上传、实时推理查看，整套代码约 750 行（含注释，有效代码约 650 行）。     
+2 文件结构      
+项目主要包含以下文件：       
+video_emotion_multimodal.py — 原始本地运行主程序        
+app.py — Gradio 网页前端启动入口       
+main.py — 视频流处理核心逻辑，对接前端输出画面      
+fusion.py — 人脸检测、多模态情感融合核心类        
+models.py — 文本 Bert 模型、ResNet18 视觉表情模型定义      
+ocr.py — EasyOCR 字幕、弹幕区域文字识别工具      
+tokenizer.py — 文本分词与词表构建工具       
+utils.py — 中文绘图工具，解决 OpenCV 中文乱码      
+config.py — 全局路径、识别区域、字体配置文件      
 模型文件：
 best_danmu_model_v1.pth — 文本情感模型（EnhancedOfflineBERT，三分类）
 best_emotion_model.pth — 视觉情感模型（ResNet18，七分类）
