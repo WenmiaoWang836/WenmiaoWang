@@ -14,55 +14,55 @@ ocr.py — EasyOCR 字幕、弹幕区域文字识别工具
 tokenizer.py — 文本分词与词表构建工具       
 utils.py — 中文绘图工具，解决 OpenCV 中文乱码      
 config.py — 全局路径、识别区域、字体配置文件      
-模型文件：
-best_danmu_model_v1.pth — 文本情感模型（EnhancedOfflineBERT，三分类）
-best_emotion_model.pth — 视觉情感模型（ResNet18，七分类）
-face_detection_yunet_2023mar.onnx — YuNet 人脸检测模型（缺失自动下载）
-test_video2.mp4 — 测试视频（可自行替换）
-所有模型路径统一在 config.py 内修改。
-3 环境配置
-3.1 基础环境
-操作系统：Windows / Linux /macOS
-Python 版本：3.8 ~ 3.10
-3.2 依赖安装
-打开终端执行安装命令：
-pip install opencv-python torch torchvision numpy Pillow easyocr gradio
-如需 GPU 加速，安装对应 CUDA 版本 PyTorch（CUDA 11.x/12.x + cuDNN）。
-推荐依赖最低版本：
-opencv-python ≥ 4.5.0
-torch ≥ 1.10.0
-torchvision ≥ 0.11.0
-numpy ≥ 1.19.0
-Pillow ≥ 8.0.0
-easyocr ≥ 1.7.0
-gradio ≥ 4.0
-4 GPU 运行说明
-程序启动时自动检测 GPU 设备，torch.cuda.is_available () 返回 True 则全部模型加载至显卡，否则自动切换 CPU 推理。
-验证 GPU 可用命令：
-python -c "import torch;print (torch.cuda.is_available ())"
-GPU 运行可大幅降低视频逐帧推理耗时。
-5 模型文件准备
-所有模型默认路径统一在 config.py 内配置，初次运行缺失 YuNet 人脸模型会自动联网下载；EasyOCR 文字识别模型存放路径同样在配置文件修改。
-Windows 默认路径参考：
-文本模型：E:\python\project1\best_danmu_model_v1.pth
-视觉模型：E:\python\project1\best_emotion_model.pth
-YuNet 人脸模型：E:\python\project1\face_detection_yunet_2023mar.onnx
-OCR 模型存放目录：E:\python\project1
-6 前端网页完整使用步骤
-6.1 启动网页前端
-打开终端，进入项目根文件夹（所有 py 文件、模型文件所在目录）
-输入启动命令运行前端服务：
-python app.py
-等待程序加载模型：依次打印 EasyOCR 初始化完成、YuNet 加载成功、文本模型加载成功、视觉模型加载成功，代表启动完成。
-终端输出本地访问地址，默认地址 http://0.0.0.0:7860，直接复制地址到浏览器打开前端页面。
-6.2 前端页面布局说明
-页面分为两大左右板块，整体为柔和简约风格：
-左侧板块：视频上传区域、功能启动按钮
-右侧板块：实时处理画面预览窗口，视频逐帧带标注实时刷新
-6.3 完整操作流程
-上传目标视频
-点击左侧「上传视频」框，从本地文件夹选择 mp4 格式视频文件，等待视频上传加载完成。
-启动实时情感分析
+模型文件：    
+best_danmu_model_v1.pth — 文本情感模型（EnhancedOfflineBERT，三分类）    
+best_emotion_model.pth — 视觉情感模型（ResNet18，七分类）    
+face_detection_yunet_2023mar.onnx — YuNet 人脸检测模型（缺失自动下载）   
+test_video2.mp4 — 测试视频（可自行替换）    
+所有模型路径统一在 config.py 内修改。     
+3 环境配置      
+3.1 基础环境     
+操作系统：Windows / Linux /macOS    
+Python 版本：3.8 ~ 3.10     
+3.2 依赖安装     
+打开终端执行安装命令：      
+pip install opencv-python torch torchvision numpy Pillow easyocr gradio     
+如需 GPU 加速，安装对应 CUDA 版本 PyTorch（CUDA 11.x/12.x + cuDNN）。     
+推荐依赖最低版本：     
+opencv-python ≥ 4.5.0     
+torch ≥ 1.10.0      
+torchvision ≥ 0.11.0     
+numpy ≥ 1.19.0     
+Pillow ≥ 8.0.0     
+easyocr ≥ 1.7.0     
+gradio ≥ 4.0     
+4 GPU 运行说明     
+程序启动时自动检测 GPU 设备，torch.cuda.is_available () 返回 True 则全部模型加载至显卡，否则自动切换 CPU 推理。     
+验证 GPU 可用命令：     
+python -c "import torch;print (torch.cuda.is_available ())"      
+GPU 运行可大幅降低视频逐帧推理耗时。      
+5 模型文件准备     
+所有模型默认路径统一在 config.py 内配置，初次运行缺失 YuNet 人脸模型会自动联网下载；EasyOCR 文字识别模型存放路径同样在配置文件修改。     
+Windows 默认路径参考：      
+文本模型：E:\python\project1\best_danmu_model_v1.pth      
+视觉模型：E:\python\project1\best_emotion_model.pth      
+YuNet 人脸模型：E:\python\project1\face_detection_yunet_2023mar.onnx      
+OCR 模型存放目录：E:\python\project1      
+6 前端网页完整使用步骤      
+6.1 启动网页前端     
+打开终端，进入项目根文件夹（所有 py 文件、模型文件所在目录）     
+输入启动命令运行前端服务：     
+python app.py      
+等待程序加载模型：依次打印 EasyOCR 初始化完成、YuNet 加载成功、文本模型加载成功、视觉模型加载成功，代表启动完成。      
+终端输出本地访问地址，默认地址 http://0.0.0.0:7860，直接复制地址到浏览器打开前端页面。      
+6.2 前端页面布局说明      
+页面分为两大左右板块，整体为柔和简约风格：      
+左侧板块：视频上传区域、功能启动按钮     
+右侧板块：实时处理画面预览窗口，视频逐帧带标注实时刷新      
+6.3 完整操作流程      
+上传目标视频       
+点击左侧「上传视频」框，从本地文件夹选择 mp4 格式视频文件，等待视频上传加载完成。      
+启动实时情感分析       
 视频上传完成后，点击下方蓝色主按钮「开始实时分析」，系统自动开始逐帧处理视频。
 查看实时识别画面
 右侧窗口会持续输出带标注的视频帧，画面内各类标识含义：
