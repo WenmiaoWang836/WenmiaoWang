@@ -102,6 +102,7 @@ python app.py
 ModuleNotFoundError: No module named 'gradio'：执行 pip install gradio 安装前端依赖；     
 EasyOCR 持续下载模型：临时修改 ocr.py 中 download_enabled=True，下载完成后改回 False；     
 YuNet 模型下载失败：手动下载 onnx 模型放入配置文件指定路径；      
+中文画面文字显示问号：修改 config.py 中 FONT_PATH 为系统自带中文字体路径；      
 GPU 显存溢出：降低画面缩放比例，拉长检测间隔，或者直接使用 CPU 运行；     
 前端浏览器打不开页面：检查端口是否占用，关闭防火墙限制，确认服务正常启动；     
 程序运行卡住不动：等待视频加载完成，或重启终端重新启动前端服务。     
