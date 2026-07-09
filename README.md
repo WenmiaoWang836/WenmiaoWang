@@ -10,7 +10,7 @@ VideoEmotion 多模态情感识别系统使用说明
 本程序基于 EasyOCR、YuNet 人脸检测、文本情感模型 和 视觉情感模型，实时分析视频中的底部字幕、右侧弹幕及画面人脸表情。将文本三分类情感映射到七类，并与视觉表情结果加权融合，输出综合情感标签。项目新增 Gradio 网页可视化前端，无需本地弹窗，浏览器即可完成视频上传、实时推理查看，整套代码约 750 行（含注释，有效代码约 650 行）。     
 
 2 文件结构      
-项目主要包含以下文件：       
+code项目主要包含以下文件：       
 video_emotion_multimodal.py — 原始本地运行主程序        
 app.py — Gradio 网页前端启动入口       
 main.py — 视频流处理核心逻辑，对接前端输出画面      
@@ -26,6 +26,14 @@ best_emotion_model.pth — 视觉情感模型（ResNet18，七分类）
 face_detection_yunet_2023mar.onnx — YuNet 人脸检测模型（缺失自动下载）   
 test_video2.mp4 — 测试视频（可自行替换）    
 所有模型路径统一在 config.py 内修改。     
+report:  
+内含pdf报告   
+result:   
+模型训练图像   
+result_video1:   
+第一个测试视频运行，由于太大，单独列一个文件夹   
+result_video2:    
+第二个测试视频运行，由于太大，单独列一个文件夹    
 
 3 环境配置      
 
