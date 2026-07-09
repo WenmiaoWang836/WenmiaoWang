@@ -20,20 +20,27 @@ ocr.py — EasyOCR 字幕、弹幕区域文字识别工具
 tokenizer.py — 文本分词与词表构建工具       
 utils.py — 中文绘图工具，解决 OpenCV 中文乱码      
 config.py — 全局路径、识别区域、字体配置文件      
+
 模型文件：    
 best_danmu_model_v1.pth — 文本情感模型（EnhancedOfflineBERT，三分类）    
 best_emotion_model.pth — 视觉情感模型（ResNet18，七分类）    
 face_detection_yunet_2023mar.onnx — YuNet 人脸检测模型（缺失自动下载）   
 test_video2.mp4 — 测试视频（可自行替换）    
 所有模型路径统一在 config.py 内修改。     
+
 report:  
 内含pdf报告   
+
 result:   
 模型训练图像   
+
 result_video1:   
 第一个测试视频运行，由于太大，单独列一个文件夹   
+
 result_video2:    
 第二个测试视频运行，由于太大，单独列一个文件夹    
+
+训练脚本：内含训练人脸与文字的脚本   
 
 3 环境配置      
 
